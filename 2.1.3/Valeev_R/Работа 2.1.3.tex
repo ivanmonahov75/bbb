@@ -1,0 +1,177 @@
+\documentclass[a4paper, 12pt]{article}%тип документа
+
+%отступы
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm,bindingoffset=0cm]{geometry}
+
+%Русский язык
+\usepackage[T2A]{fontenc} %кодировка
+\usepackage[utf8]{inputenc} %кодировка исходного кода
+\usepackage[english,russian]{babel} %локализация и переносы
+
+%Вставка картинок
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%Графики
+\usepackage{multirow}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+%Математика
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+
+%Заголовок
+\author{Мыздриков Иван Витальевич \\
+группа Б06-401}
+\title{\textbf{Работа 2.1.3 \\ 
+Определение $C_p / C_v$ по скорости звука в газе}}
+\begin{document}
+\maketitle
+\newpage
+\section*{Цель работы}
+\begin{enumerate}
+\item измерение частоты колебаний и длины волны при резонансе звуковых колебаний в газе, заполняющем трубу
+\item определение показателя адиабаты с помощью уравнения состояния идеального газа
+\end{enumerate}
+\section*{Краткая теоретическая справка}
+\subsection*{Скорость звука}
+Распространение звуковой волны в газе происходит адиабатически. Сжатия и разрежения в газе сменяют друг друга настолько быстро, что теплообмен между слоями газа, имеющими разные температуры, не успевает произойти. Используя полученное уравнение адиабаты идеального газа, найдем скорость звука по общей формуле
+\[c = \sqrt{\dfrac{dP}{d \rho}.}\]
+Заменим в уравнение Пуассона $PV^{\gamma} = const$ объем на плотность $\rho = \dfrac{m}{V}$, после чего получим $P = const \cdot \rho^{\gamma}$. Тогда после логарифмирования и дифференцирования этого выражения имеем 
+\[ \dfrac{dP}{P} = \gamma \dfrac{d \rho }{\rho} \text{, или } \left( \dfrac{dP}{d\rho} \right)_\text{адиабат} = \sigma \dfrac{P}{\rho} \]
+откуда для скорости звука получаем
+\[ c = \sqrt{\left( \dfrac{dP}{d\rho} \right)_\text{адиабат}} = \sqrt{\gamma \dfrac{P}{\rho}} = // PV = \dfrac{\mu}{m} RT // = \sqrt{\gamma \dfrac{RT}{\mu}} \Rightarrow \]
+\[ \gamma = \dfrac{\mu}{RT} c^2.\]
+Таким образом, для определения показателя адиабаты достаточно измерить температуру газа и скорость распространения звука (молярная масса газа предполагается известной).
+
+Звуковая волна, распространяющаяся вдоль трубы, испытывает многократное отражение от торцов. Звуковые колебания в трубе являются наложением всех отраженных волн и, вообще говоря, очень сложны. Картина упрощается, если длина трубы $L$ равна целому числу полуволн, то есть когда 
+\[L = n \dfrac{\lambda}{2}\]
+\[c = \lambda f.\]
+Подбор условий, при которых возникает резонанс, можно производить двояко:
+\begin{enumerate}
+\item При неизменной частоте $f$ звукового генератора (а, следовательно, и неизменной длине звуковой волны $\lambda$) можно измерять длину трубы $L$.
+\item При постоянной длине трубы можно изменять частоту звуковых колебаний. В этом случае следует плавно изменять частоту $f$ звукого генератора, а следовательно, и длину звуковой волны $\lambda$. Для последовательных резонансов получим 
+\[L = \dfrac{\lambda_1}{2}n = \dfrac{\lambda_2}{2}(n+1) = ... = \dfrac{\lambda_{k+1}}{2}(n+k).\]
+Отсюда имеем, что 
+\[f_1 = \dfrac{c}{\lambda_1} = \dfrac{c}{2L}n, \text{ } f_2 = \dfrac{c}{\lambda_2} = \dfrac{c}{2L}(n+1) = f_1 +  \dfrac{c}{2L},...,\]
+\[f_{k+1} = \dfrac{c}{\lambda_{k+1}} = \dfrac{c}{2L}(n+k) = f_1 +  \dfrac{c}{2L}k.\]  
+\end{enumerate}
+\subsection*{Экспериментальная установка}
+\includegraphics[width = 0.9\textwidth]{213_1.jpg}
+
+Здесь звуковые колебания возубждаются телефоном Т и улавливаются микрофоном М. Мембрана телефона приводится в движение переменным током звуковой частоты; в качестве источника переменной ЭДС используется звуковой генератор ГЗ. Возникающей в микрофоне сигнал наблюдается на осцилографе ЭО.
+
+Микрофон и телефон подсоединены к установке через тонкие резиновые трубки. Такая связь достаточна для возбуждения и обнаружения звуковых колебаний в трубе и в то же время мало возмущает эти колебания.
+
+Установка содержит теплоизолированную трубу постоянной длины. Воздух в трубе нагревается из термостата. Температура газа принимается равной температуре воды, омывающей трубу.  
+\section*{Ход работы}
+\begin{enumerate}
+\item  ЭО и ЗГ для дальнейшей работы.
+\item Измеряем скорость звука в трубе постоянной длины. Плавно увеличивая частоту генератора, получаем ряд последовательных резонансных значений частоты, отмечая момент резонанса по увеличению амплитуды колебаний на экране осцилогрофа.
+\item Строим график, откладывая по оси абсцисс номер резонанса $k$, а по оси ординат - $f_{k+1} - f_1$. Угловой коэффициент прямой определяет велечину $c / 2L$, где $L = (700 \pm 1)$ мм.
+\item Повторяем 2 и 3 для разных температур.\\
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$T = (25.4 \pm 0,1) ^{\circ}C$} \\ \hline
+Номер & $f, Hz$ & $\sigma_f, Hz$ \\ \hline
+1 & 262.5 & 10 \\ \hline
+2 & 500.0 & 10 \\ \hline
+3 & 742.0 & 10 \\ \hline
+4 & 991.0 & 10 \\ \hline
+5 & 1238.0 & 10 \\ \hline
+6 & 1483.0 & 10 \\ \hline
+7 & 1733.0 & 10 \\ \hline
+8 & 1982.0 & 10 \\ \hline
+9 & 2230.0 & 10 \\ \hline
+\end{tabular}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$T = (35 \pm 0,1) ^{\circ}C$} \\ \hline
+Номер & $f, Hz$ & $\sigma_f, Hz$ \\ \hline
+1 & 266.0 & 10 \\ \hline
+2 & 508.0 & 10 \\ \hline
+3 & 755.0 & 10 \\ \hline
+4 & 1007.0 & 10 \\ \hline
+5 & 1258.0 & 10 \\ \hline
+6 & 1508.0 & 10 \\ \hline
+7 & 1750.0 & 10 \\ \hline
+8 & 2012.0 & 10 \\ \hline
+9 & 2261.0 & 10 \\ \hline
+\end{tabular}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$T = (45.1 \pm 0,1) ^{\circ}C$} \\ \hline
+Номер & $f, Hz$ & $\sigma_f, Hz$ \\ \hline
+1 & 270.0 & 10 \\ \hline
+2 & 515.0 & 10 \\ \hline
+3 & 768.0 & 10 \\ \hline
+4 & 1025.0 & 10 \\ \hline
+5 & 1277.0 & 10 \\ \hline
+6 & 1530.0 & 10 \\ \hline
+7 & 1786.0 & 10 \\ \hline
+8 & 2041.0 & 10 \\ \hline
+9 & 2291.0 & 10 \\ \hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$T = (55 \pm 0,1) ^{\circ}C$} \\ \hline
+Номер & $f, Hz$ & $\sigma_f, Hz$ \\ \hline
+1 & 274.0 & 10 \\ \hline
+2 & 522.0 & 10 \\ \hline
+3 & 777.0 & 10 \\ \hline
+4 & 1037.0 & 10 \\ \hline
+5 & 1297.0 & 10 \\ \hline
+6 & 1551.0 & 10 \\ \hline
+7 & 1813.0 & 10 \\ \hline
+8 & 2078.0 & 10 \\ \hline
+9 & 2326.0 & 10 \\ \hline
+\end{tabular}
+
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$T, ^{\circ}C$ & $c$ м/c & $\sigma_c$, м/c & $\gamma$ & $\sigma_{\gamma}$ \\ \hline
+25.4 & 346 & 1,3 & 1,401 & 0,009 \\ \hline
+35   & 352 & 1,3 & 1,403 & 0,008 \\ \hline
+45.1 & 358 & 1,3 & 1,406 & 0,008 \\ \hline
+55   & 363 & 1,3 & 1,401 & 0,007 \\ \hline
+\end{tabular}
+\begin{figure}
+\begin{wrapfigure}{r}{\textwidth}
+  \begin{center}
+    \includegraphics[width = \textwidth]{213_2.jpg}
+  \end{center}
+  \textbf{\caption{$T = (25.4 \pm 0,1) ^{\circ}C$}}
+\end{wrapfigure}
+\end{figure}
+\begin{figure}
+\begin{wrapfigure}{r}{\textwidth}
+  \begin{center}
+    \includegraphics[width = \textwidth]{213_3.jpg}
+  \end{center}
+  \textbf{\caption{$T = (35 \pm 0,1) ^{\circ}C$}}
+\end{wrapfigure}
+\end{figure}
+\begin{figure}
+\begin{wrapfigure}{r}{\textwidth}
+  \begin{center}
+    \includegraphics[width = \textwidth]{213_4.jpg}
+  \end{center}
+  \textbf{\caption{$T = (45.1 \pm 0,1) ^{\circ}C$}}
+\end{wrapfigure}
+\end{figure}
+\begin{figure}
+\begin{wrapfigure}{r}{\textwidth}
+  \begin{center}
+    \includegraphics[width = \textwidth]{213_5.jpg}
+  \end{center}
+  \textbf{\caption{$T = (55 \pm 0,1) ^{\circ}C$}}
+\end{wrapfigure}
+\end{figure}
+
+\item Вычисляем значение $\gamma = C_p / C_v$.
+\end{enumerate}
+\end{document}

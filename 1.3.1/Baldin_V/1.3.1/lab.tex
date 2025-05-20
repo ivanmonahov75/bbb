@@ -1,0 +1,271 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+\usepackage{graphicx, float, multicol, hyperref, pgfplots, amsmath}
+
+\graphicspath{{pictures/}}
+
+\title{Лабораторная работа 1.3.1 \\
+       Определение модуля Юнга на основе исследования деформаций растяжения и изгиба}
+\author{Мыздриков Иван Б06-401}
+
+\begin{document}
+    \maketitle
+
+    \section{Aннотация}
+    \par \textbf{Цель работы:} экспериментально получить зависимость между напряжением и деформацией
+    для двух простейших напряженных состояний упругих тел: одностороннего сжатия и чистого изгиба;
+    по результатам эксперимента вычислить модул Юнга.\\
+\newpage
+
+    \section{Определение модуля Юнга по измерениям растяжения проволоки}
+    \subsection{Теоретические сведения}
+    Растяжение проволоки соответствует напряженному состоянию вдоль одной оси, которое описывается формулой:
+\begin{equation}
+    \frac{F}{S} = E \frac{\Delta l}{l}
+    \label{lermantov}
+\end{equation}
+    Эту формулу можно переписать также в следующем виде:
+    \begin{equation}
+        F = k\Delta l,
+    \end{equation}
+    где $k = ES / l$ -- жесткость проволоки.
+    Измерения производятся на установке Лермантова.
+    Направим зрительную трубку на зеркальце.
+    Выведем формулу для расчета растяжения длины проволоки по показаниям шкалы
+    прибора (см. рис. 1).
+    Так как мы считаем проволоку слабо растяжимой, справедлива оценка $\Delta l \ll r$, где
+    $r$ -- длина рычага. С учетом этого, угол наклона зеркальца к горизонтали можно
+    найти как $\alpha = \Delta l/r$. С другой стороны, из соображений геометрической оптики
+    угол $\alpha$ можно найти как угол между продолжениями соответствующих лучей:
+    \begin{equation}
+        \alpha = \frac{n}{2h},
+    \end{equation}
+    где $n$ -- показания шкалы, $h$ -- расстояние от шкалы до
+    зеркальца.
+    \par Таким образом, удлинение проволоки можно выразить как:
+    \begin{equation}
+        \Delta l = n\frac{r}{2h}
+        \label{dlina}
+    \end{equation}
+
+    Отсюда формулу (1) можно переписать как
+    \begin{equation}
+        F = \frac{ESr}{2lh}n
+    \end{equation}
+
+    \subsection{Методика измерений}
+    \par Для определения модуля Юнга используется прибор Лермонтова,
+    схема которого изображена на рис. 1. 
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.3]{pictures/lermantov.png}
+        \caption{Прибор Лермантова}
+    \end{figure}
+
+
+    \subsection{Результаты измерений и обработка данных}
+    \begin{enumerate}
+    \item Сведем характеристики установки в таблицу:
+    \begin{table}[H]
+        \centering
+        \caption{Параметры прибора Лермантова}
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        $ $d_{\tiny{\mbox{пр}}}$, мм & $r$, мм & $l$, см & $h$, см \\ \hline
+        $ $0.46 \pm 0.01$ & $15 \pm 1$ & $117 \pm 2$ & $144.0\pm 2$ \\ \hline
+
+        \end{tabular}
+    \end{table}
+    \item Оценим, сколько грузов можно подвесить к проволоке. Для этого найдем площадь
+    сечения проволоки и погрешность: \[S = \frac{\pi d^2}{4} = 0.166\;\mbox{мм}^2,\]
+    \[\sigma_S = 2S\frac{\sigma_d}{d} = 0.01\;\mbox{мм}^2\]
+    Предельная нагрузка на разрушение:
+    \[ P_{max} = 0.3\sigma_{\mbox{\tiny{пр}}}S = 4.48 \; \mbox{кг/с},\]
+    \[ \sigma_{P_{max}} = 0.27\; \mbox{кг/с} \]
+    Согласно полученному значению, можно подвесить все грузы.
+    \item Перейдем к измерениям. Загрузим и разгрузим платформу:
+    \begin{table}[H]
+    \centering
+    \caption{Зависимость показаний шкалы от нагрузки}
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $\Delta m$, гр & $P$, Н & $n_1 \downarrow$, см & $n_1\uparrow$, см & $n_2 \downarrow$, см\\ \hline
+    503.4          & 5.0    & 19.9                 & 49.2              & 20.4                \\ \hline
+    245.5          & 7.4    & 23.0                 & 47.0              & 23.4                 \\ \hline
+    245.6          & 9.8    & 25.9                 & 44.4              & 25.8                 \\ \hline
+    246.1          & 12.2   & 28.5                 & 41.9              & 28.9                 \\ \hline
+    245.6          & 14.6   & 31.0                 & 39.3              & 31.5                  \\ \hline
+    244.3          & 14.5   & 33.1                 & 36.7              & 34.0                  \\ \hline
+    245.6          & 17.0   & 36.2                 & 34.2              & 36.7                 \\ \hline
+    245.3          & 19.5   & 38.6                 & 31.6              & 39.1                 \\ \hline
+    245.8          & 22.9   & 40.9                 & 29.0              & 41.8                   \\ \hline
+    245.5          & 24.3   & 43.2                 & 26.2              & 44.1                          \\ \hline
+    243.6          & 26.7   & 46.7                 & 23.4              & 46.8                             \\ \hline
+    245.3          & 29.1   & 48.5                 & 20.4              & 49.1                            \\ \hline
+    \end{tabular}
+    \end{table}
+    \item Построим графики зависимости $n(F)$ для каждого эксперимента.
+    \begin{figure}[H]
+        \centering
+        \caption{Графики зависимости для $n(F)$}
+        \input{graphs/lermant_copy.pgf}
+    \end{figure}
+    \end{enumerate}
+    Видим, что линеность сохраняется только на первых 5-ти измерениях (это может быть связанно с прогибанием других компонентов прибора, кроме проволоки):
+    \newline Опираясь на них найдет модуль Юнга и построим линейную аппроксимацию:
+    \begin{figure}[H]
+        \centering
+        \caption{Графики зависимости для $n(F)$}
+        \input{graphs/appr.pgf}
+    \end{figure}
+    \begin{equation}
+        k = \frac{2lh}{ESr}
+    \end{equation}
+    Отсюда
+    \begin{equation}
+        E =\frac{2lh}{kSr}
+    \end{equation}
+    В нашем случае логично использовать усредненное значение $\langle k \rangle = 1.158 \cdot
+    10^{-2}
+    $ м/Н, т. к. у нас есть график для уменьшения и увеличения нагрузки.
+    Погрешность можно рассчитать как
+    \[ \varepsilon_k = \frac{1}{k\sqrt{N - 2}}\sqrt{\frac{\langle n^2 \rangle -\langle n \rangle^2}{
+    \langle P^2 \rangle - \langle P \rangle^2} - k^2} = 0.03\]
+
+    Найдем модуль Юнга и его погрешность:
+    \[ E = 177\; \mbox{ГПа}, \]
+    \begin{equation*}
+        \varepsilon_E = \sqrt{\varepsilon_l^2 + \varepsilon_h^2 +
+    \varepsilon_k^2 + \varepsilon_S^2 + \varepsilon_r^2} \approx \sqrt{
+    \varepsilon_k^2 + \varepsilon_S^2 + \varepsilon_r^2} \approx 0.10, \\\
+    \sigma_E = E \varepsilon_E \approx 16\;\mbox{ГПа}
+    \end{equation*}
+
+    \section{Определение модуля Юнга по измерениям изгиба балки}
+    \subsection{Теоретические сведения}
+    Модуль Юнга материала стержня $E$ связан с величиной
+    прогиба $y_{max}$ как:
+    \begin{equation}\label{balka}
+        E=\frac{Pl^3}{4ab^3y_{max}}
+    \end{equation}
+    где $P$ - нагрузка на стержень, $l$ - расстояние меду точками опоры,
+    $a$ - ширина балки, $b$ - высота балки.
+
+    \subsection{Экспериментальная установка}
+    \par Экспериментальная установка состоит из прочной стойки с
+    опорными призмами А и Б (рис. 2). На ребра призм опирается исследуемый
+    стержень В. В середине стержня на призме Д подвешена площадка
+    П с грузами. Измерять величину
+    прогиба можно с помощью индикатора И, укрепляемого
+    на отдельной штанге. Полный оборот большой
+    стрелки индикатора соответствует 1 мм и одному делению малого циферблата.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale = 0.25]{pictures/balka.png}
+        \caption{Схема установки для измерения модуля Юнга}
+    \end{figure}
+
+    \subsection{Результаты измерений и обработка данных}
+    \begin{enumerate}
+        \item Измерим расстояние между опорами $l = (53.5 \pm 0.1)$ см.
+        \item Измерим ширину $a$ и высоту $b$ балок из различных
+        материалов при помощи штангенциркуля:
+        \begin{table}[H]
+            \centering
+            \caption{Размеры исследумеых балок}
+            \begin{tabular}{|c|c|c|}
+            \hline
+                    & Дерево & Латунь \\ \hline
+            $a$, мм & 20.1   & 21.4   \\ \hline
+            $b$, мм & 9.9     & 4.0    \\ \hline
+            \end{tabular}
+        \end{table}
+
+        \item Перейдем непосредственно к измерениям. Обозначим за $\Delta m$ массу
+        последнего положенного груза. Результаты измерений приведены
+        в таблице 5.
+        \item Построим графики для каждого из материалов.
+        \begin{figure}[H]
+            \centering
+            \caption{Графики для деревянной балки}
+            \input{graphs/wood.pgf}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \caption{Графики для латунной балки}
+            \input{graphs/lat.pgf}
+        \end{figure}
+        \begin{table}[H]
+            \centering
+            \caption{Экспериментальные данные для дерева}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Смещение увел. массы, мкм & Смещение умен. массы & Изменение массы \\ \hline
+            0  & 359  & 0     \\ \hline
+            45  & 306  & 472.5    \\ \hline
+            93 & 254  & 461.8    \\ \hline
+            147 & 204  & 496.2    \\ \hline
+            200 & 152  & 503      \\ \hline
+            251 & 98   & 500      \\ \hline
+            305 & 51   & 502      \\ \hline
+            358 & 13   & 508.7    \\ \hline
+            \end{tabular}
+        \end{table}
+
+        \begin{table}[H]
+            \centering
+            \caption{Экспериментальные данные для латуни}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Смещение увел. массы, мкм & Смещение умен. массы & Изменение массы \\ \hline
+                33  & 802  & 0     \\ \hline
+                138 & 702  & 472.5    \\ \hline
+                254 & 632  & 461.8    \\ \hline
+                370 & 502  & 496.2    \\ \hline
+                476 & 375  & 503      \\ \hline
+                590 & 260  & 503.5     \\ \hline
+                690 & 145  & 563.5    \\ \hline
+                800 & 30   & 500    \\ \hline
+                \end{tabular}
+            \end{table}
+
+        \item Модуль Юнга через угловой кэффицент $\gamma$ можно
+        вычислить по формуле
+        \begin{equation}
+            E = \frac{\gamma l^3}{4ab^3}
+        \end{equation}
+        Отсюда погрешность:
+        \begin{equation*}
+            \varepsilon_E = \sqrt{\varepsilon_{\gamma}^2 + (3\varepsilon_l)^2
+            +\varepsilon_a^2 + (3\varepsilon_b)^2}
+        \end{equation*}
+        \item Сведем все средние значения угловых коэффицентов и модулей
+        Юнга в таблицу:
+        \begin{table}[H]
+            \centering
+            \caption{Значения модуля Юнга}
+            \begin{tabular}{|c|c|c|c|}
+
+            \hline
+            Материал               & Дерево  & Латунь \\ \hline
+            $\gamma$, Н/мм         & 10.5   & 21.6   \\ \hline
+            $\varepsilon_{\gamma}$ & 0.01   & 0.01   \\ \hline
+            $a$, мм                & 20.1  & 21.4  \\ \hline
+            $b$, мм                & 9.9    & 4.0    \\ \hline
+            $E$, Гпа               & 20.6     & 60.3     \\ \hline
+            $\varepsilon_E$        & 0.011  & 0.012   \\ \hline
+            \end{tabular}
+        \end{table}
+
+    \end{enumerate}
+
+    \section{Обсуждение результатов}
+    Достаточно сравнить полученные результаты с табличными значениями
+    модуля Юнга ГПа, $E_{\mbox{\tiny{лт}}}
+    = 95$ ГПа (источник \url{https://en.wikipedia.org/wiki/Young%27s_modulus}).
+    Видим явную ошибку в измерении латуни, при том порядка 2/3.
+
+\end{document}

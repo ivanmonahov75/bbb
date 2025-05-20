@@ -1,0 +1,139 @@
+\documentclass[a4paper, 10pt]{article}%тип документа
+
+%Русский язык
+\usepackage[T2A]{fontenc} %кодировка
+\usepackage[utf8]{inputenc} %кодировка исходного кода
+\usepackage[english,russian]{babel} %локализация и переносы
+
+\usepackage{multirow}
+
+%Вставка картинок
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%Производные
+\usepackage{physics}
+
+%Математика
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+
+\usepackage[left=10mm, top=20mm, right=18mm, bottom=15mm, footskip=10mm]{geometry}
+
+%Заголовок
+\author{Мыздриков Иван Витальевич}
+\title{Лабораторная работа 1.2.1\\
+	Определение скорости полета пули при помощи баллистического маятника}
+\date{\today}
+\begin{document}
+	\maketitle
+	\paragraph {Цель работы:}
+		Определмить скорость полета пули, применяя законы сохранения и используя баллистические маятники
+	\paragraph{В работе используются:}
+	\begin{enumerate}
+		\item Духовое ружье на штативе
+		\item Осветитель
+		\item Оптическая система для измерения отклонений маятника
+		\item Измерительная линейка
+		\item 10 пуль
+		\item Весы
+		\item Баллистические маятники
+	\end{enumerate}
+	\paragraph{Ход работы}
+	\begin{enumerate}
+		\item Измерим на весах массу каждой пули (табл. 1). Погрешность весов: $\sigma_m = 10$ мг
+		\begin{table}[h]
+			\centering
+			\caption{Массы пуль}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+				\hline
+				№ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+				\hline
+				$m_i$, мг & 506 & 512 & 508 & 509 & 507 & 503 & 512 & 508 & 512 & 506 \\
+				\hline
+			\end{tabular}
+		\end{table}104
+		\item Измерим расстояние $L = (2275.5 \pm 1)$ мм.
+		\item Соберем оптическую систему, включим и отстроим шкалу на ноль. Убедимся, что холостые выстрелы не влияют на маятник (движение не заметно глазом). Убедимся, что затухание колебаний незначительно (за 10 колебаний амплитуда уменьшается меньше, чем наполовину).
+		\item Произведем 5 выстрелов пулями № 1-5, запишем амплитуду маятника в табл. 2:
+		\begin{table}[h]
+			\centering
+			\caption{Результаты выстрелов в баллистический маятник №1}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				№ & 1 & 2 & 3 & 4 & 5 \\
+				\hline
+				$\Delta x$, мм & 11.5 & 11.5 & 12 & 13 & 11.5 \\
+				\hline
+				$L$, мм & \multicolumn{5}{|c|}{$2275.5 \pm 1$} \\
+				\hline
+				$m$, мг & 506 & 512 & 508 & 509 & 507 \\
+				\hline
+				$M$, г & \multicolumn{5}{|c|}{$2900 \pm 4$} \\
+				\hline
+				$u, \frac{\text{м}}{c}$ & 136.8 & 135.2 & 142.2 & 153.7 & 136.5 \\
+				\hline
+				$u_\text{ср}, \frac{\text{м}}{c}$ & \multicolumn{5}{|c|}{$140.8 \pm 3 (\varepsilon_{} \text{= 6\%}) $} \\
+
+				\hline
+			\end{tabular}
+		\end{table}
+		\item Расчитаем начальную скорость пули по формуле:
+		\[u=\dfrac{M}{m}\sqrt{\dfrac{g}{L}}\Delta x\]
+		Расчитаем погрешность скорости:
+		\[\varepsilon_{u_\text{сист}} = \varepsilon_M + \varepsilon_m + \tfrac{1}{2}\varepsilon_g + \tfrac{1}{2}\varepsilon_L + \varepsilon_{\Delta x} \approx 4\%\]
+		\[\sigma_{u_\text{сист}} = u\varepsilon_{u_\text{сист}} \approx 3.5 \tfrac{\text{м}}{c}\]
+		\[\sigma_{u_\text{случ}} \approx 6.85 \tfrac{\text{м}}{c}\]
+		\[\sigma_u = \sqrt{\sigma_{u_\text{сист}}^2+\sigma_{u_\text{случ}}^2} \approx 8.44 \tfrac{\text{м}}{c}\]
+		\[\varepsilon_u = \frac{\sigma_u}{u} \approx 6\%\]
+		По итогу получаем:
+		\[u = \left(140.8 \pm 11\right) \tfrac{\text{м}}{c} (6\%)\]
+		
+		\item Измерим для баллистического маятника №2 параметры $r$, $R$ и $d$ (табл. 3):
+		\begin{table}[h]
+			\centering
+			\caption{Параметры баллистического маятника №2}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				Параметр & $r$ & $R$ & $d$ \\
+				\hline
+				Значение, мм & $205 \pm 1$ & $340 \pm 1$ & $1395 \pm 1$ \\
+				\hline
+			\end{tabular}
+		\end{table}
+		
+		\item Измерим массы грузов: $M_1 = \left(730 \pm 0.1\right) \text{г}$, $M_2 = \left(730 \pm 0.1\right) \text{г}$
+		\item Настроим осветительную систему. Включим осветитель и отстроим шкалу на ноль. Убедимся, что холостые выстрелы не влияют на маятник (движение не заметно глазом). Убедимся, что затухание колебаний незначительно (за 10 колебаний амплитуда уменьшается меньше, чем наполовину).
+		
+		
+		\item Произведем 5 выстрелов пулями №6-10, запишем амплитуду маятника в табл. 5:
+		\begin{table}[h]
+			\centering
+			\caption{Результаты выстрелов в баллистический маятник №2}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				№ & 1 & 2 & 3 & 4 & 5 \\
+				\hline
+				$\Delta x$, мм & 44 & 43 & 46 & 42 & 40 \\
+				\hline
+				$m$, мг & 503 & 512 & 508 & 512 & 506 \\
+				\hline
+				$u, \frac{\text{м}}{c}$ & 57.8 & 55.6 & 60 & 54.3 & 52.3 \\
+				\hline
+				$u_\text{ср}, \frac{\text{м}}{c}$ & \multicolumn{5}{|c|}{\bf{$56 \pm 3 \left(5.5\%\right)$}} \\
+				\hline
+			\end{tabular}
+		\end{table}
+		\item Расчитаем начальную скорость пули по формуле:
+		\[u = \varphi\dfrac{\sqrt{kI}}{mr} \approx x\dfrac{\sqrt{kI}}{2dmr}\]
+		\[\sqrt{kI} = \dfrac{4\pi MR^2T_1}{T_1^2-T_2^2} \approx (0.757 \pm 0.003) \tfrac{\text{кг}\cdot\text{м}^2}{c}\]
+		\[\varepsilon_u = \varepsilon_{\sqrt{kI}} + \varepsilon_x + \varepsilon_m + \varepsilon_r \approx 2\%\]
+		Расчитаем погрешность:
+		\[\sigma_{u_\text{случ}} \approx 2.7 \frac{\text{м}}{c}\]
+		\[\sigma_{u_\text{сист}} = u\varepsilon_u \approx 1.5 \frac{\text{м}}{c}\]
+		\[\sigma_u = \sqrt{\sigma_{u_\text{сист}}^2+\sigma_{u_\text{случ}}^2} \approx 3 \tfrac{\text{м}}{c}\]
+		По итогу:
+		\[u = \left(56 \pm 3\right) \tfrac{\text{м}}{c} (5.5\%)\]
+	\end{enumerate}
+	\paragraph{Выводы:}
+	С помощью баллистического маятника можно оценить начальную скорость пули из духового ружья. Этот метод при модификафии также подойдет и для огнестрельного оружия, если расположить балличтический маятник достаточно далеко от оружия, чтобы пороховые газы на него не влияли. Основной причиной погрешностей стало определение амплитуды маятника. Также разброс значений связан с тем, что начальная скорость пули при каждом выстреле действительно разная, для увеличения точности необходимо больше выстрелов.
+\end{document}
